@@ -12,7 +12,7 @@ void ShowNum_reverse(const int* array, size_t size_ar){
     }
   }
 void ShowEven(const int* array, size_t size_ar){
-  for (int i=0; i<size_ar;i++){
+  for (int i=0; i<size_ar ; i++){
     if (array[i]==array[i]/2*2){
       cout<<array[i]<<'\t';
     }

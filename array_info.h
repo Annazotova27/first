@@ -1,0 +1,3 @@
+struct ArrayInfo 
+struct MinMax
+

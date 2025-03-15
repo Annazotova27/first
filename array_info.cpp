@@ -40,4 +40,6 @@ void getInfoArray(struct ArrayInfo* arInfo){
     }
 
 
+
+
 }

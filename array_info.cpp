@@ -1,64 +1,43 @@
 #include <iostream>
-struct ArrayInfo {
-int* ar;
-int size;
-int ind_max;
-int ind_min;
-double mean;
-};
-
-void getInfoArray(struct ArrayInfo* arInfo){
-  int  a,b,c;
-  double d;
-  std::cin>>a;
-   int array[a];
-  b=0;
-  c=a-1;
-  d=0.1;
- //std::cout<<array;
-std::cout<<std::endl<<b<<c<<d;
-  for (int i=0;i<a; i++){
-    int q;
-    std::cin>>q;
-    array[i]=q;
-    
-  }
-  double q{0};
-  for (int i=0;i<a; i++){
-    q+=array[i];
-    
-  }
-  d=q/a;
-  std::cout<<d;
-  arInfo->ar=array;
-   arInfo->size=a;
-  arInfo->ind_max=c;
-   arInfo->ind_min=a;
-   arInfo->mean=d;
-}
-struct MinMax {
-int ind_min;
-int ind_max;
-};
+#include "array_info.h"
 struct MinMax GetMaxMin(const int* ar, int size){
-  int mx{-10000000};
-  int mn{100000000};
-  for (int i=0; i<size;i++){
-    if (ar[i] >mx){
-      mx=ar[i];}
-      if (ar[i] <mn){
-        mn=ar[i];
-      }
-    
-  }
-  MinMax.ind_min=mn;
-   MinMax.ind_max=mx;
+    struct MinMax a={0,0};
+    int mn=ar[0];
+    int mx=ar[0];
+    for (int i=0; i<size;i++){
+        if (*(ar+i)<mn){
+            mn=*(ar+i);
+            a.ind_min=i;
+        }
+        if (*(ar+i)>mx){
+            mx=*(ar+i);
+            a.ind_max=i;
+        }
+    }
+    return a;
 }
-
-int main(){
-  ArrayInfo anna;
-  getInfoArray(&anna);
-  //std::cout<<anna.mean;
-  
+struct CountNum GetStatNumber(const int* ar, int size){
+    struct CountNum b={0,0,0};
+    for (int i=0;  i<size;i++){
+        if (*(ar+i)>0){
+            b.pos+=1;
+        }
+        else if (*(ar+i)==0){
+            b.zero+=1;
+        }
+        else  {
+            b.neg+=1;
+        }
+    }
+    return b;
 }
+void getInfoArray(struct ArrayInfo* arInfo){
+    struct MinMax a=GetMaxMin(arInfo->ar,arInfo->size);
+    arInfo->ind_max=a.ind_max;
+    arInfo->ind_min=a.ind_min;
+    for (int i=0; i<arInfo->size;i++){
+        arInfo->mean+=(double)arInfo->ar[i]/(double)arInfo->size;
+    }
 
+
+}

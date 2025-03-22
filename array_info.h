@@ -19,3 +19,4 @@ int zero;
 }
 ;
 struct CountNum GetStatNumber(const int* ar, int size);
+int* CreateAr(int size, int min, int max);

@@ -8,6 +8,8 @@ int main(int,char**){
     arInfo.size = size;
     getInfoArray(&arInfo);
     GetStatNumber(arInfo.ar, arInfo.size);
+ CreateAr(size,min,max);
+
 }
 
 

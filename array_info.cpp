@@ -44,18 +44,31 @@ void getInfoArray(struct ArrayInfo* arInfo){
 
 
 }
-int* CreateAr(int size, int min, int max){
-
-
-  srand(time(nullptr));
-  int *ar {new int [size] {}} ;
-  for (unsigned i=0; i<size;i++){
-    ar[i]=rand() % (max-min+1)+min;
-
+int* CreateAr(int size){
+  return new int[size];
+}
+int* CreateAr(int size, int number){
+  int *ar=new int[size];
+  int *i = new int;
+  *i=0;
+  while (*i<size){
+    *(ar+*i)=number;
+    (*i)++;
   }
-  int *k=&ar[0];
-  delete[] ar;
-
-   return k;
+  delete  i;
+ return ar;
 
 }
+int* CreateAr(int size, int min, int max){
+  srand(time(nullptr));
+    int *ar=new int[size];
+    int *i = new int;
+    *i=0;
+    while (*i<size){
+      *(ar+*i)=rand()%(max-min+1)+min;
+      (*i)++;
+    }
+    delete  i;
+    return  ar;
+
+  }

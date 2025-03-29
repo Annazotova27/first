@@ -1,5 +1,6 @@
 #include <iostream>
 #include "array_info.h"
+#include <map>
 struct MinMax GetMaxMin(const int* ar, int size){
     struct MinMax a={0,0};
     int mn=ar[0];
@@ -72,3 +73,24 @@ int* CreateAr(int size, int min, int max){
     return  ar;
 
   }
+struct StatArray GetStatArray(const int* ar, int size) {
+    StatArray result;
+    if (size > MAX_ARRAY_SIZE) {
+        size = MAX_ARRAY_SIZE;
+    }
+    result.size = size;
+    for (int i = 0; i < size; i++) {
+        result.ar[i] = ar[i];
+    }
+    std::map<int, int> frequency;
+    for (int i = 0; i < size; i++) {
+        frequency[ar[i]]++;
+    }
+    result.size_prob = size;
+
+    for (int i = 0; i < size; i++) {
+        result.probabilities[i] = static_cast<double>(frequency[ar[i]]) / size;
+    }
+
+    return result;
+}

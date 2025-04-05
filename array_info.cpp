@@ -73,24 +73,51 @@ int* CreateAr(int size, int min, int max){
     return  ar;
 
   }
+#include "array_info.h"
+#include <algorithm>
+
+
 struct StatArray GetStatArray(const int* ar, int size) {
     StatArray result;
-    if (size > MAX_ARRAY_SIZE) {
-        size = MAX_ARRAY_SIZE;
-    }
+    
+    
     result.size = size;
+    result.ar = new int[size];
     for (int i = 0; i < size; i++) {
         result.ar[i] = ar[i];
     }
-    std::map<int, int> frequency;
+    
+    
+    int max_element = 0;
     for (int i = 0; i < size; i++) {
-        frequency[ar[i]]++;
+        if (ar[i] > max_element) {
+            max_element = ar[i];
+        }
     }
-    result.size_prob = size;
-
+    
+    
+    result.size_prob = max_element + 1;
+    result.probabilities = new double[result.size_prob];
+    
+    
+    for (int i = 0; i < result.size_prob; i++) {
+        result.probabilities[i] = 0.0;
+    }
+    
+    
     for (int i = 0; i < size; i++) {
-        result.probabilities[i] = static_cast<double>(frequency[ar[i]]) / size;
+        if (ar[i] < result.size_prob) {
+            result.probabilities[ar[i]] += 1.0;
+        }
     }
-
+    
+    
+    for (int i = 0; i < result.size_prob; i++) {
+        if (result.probabilities[i] > 0) {
+            result.probabilities[i] /= size;
+        }
+    }
+    
     return result;
 }
+

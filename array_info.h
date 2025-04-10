@@ -28,4 +28,11 @@ double* probabilities;
 int size_prob;
 };
 struct StatArray GetStatArray(const int* ar, int size);
+struct StatArray {
+    int* ar;         
+    int size;            
+double* probabilities;     
+int size_prob;   };
+
+struct StatArray GetStatArray(const int* ar, int size);
 

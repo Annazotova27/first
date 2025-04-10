@@ -1,6 +1,7 @@
 #include <iostream>
 #include "array_info.h"
 #include <map>
+#include <algorithm>
 struct MinMax GetMaxMin(const int* ar, int size){
     struct MinMax a={0,0};
     int mn=ar[0];
@@ -73,7 +74,7 @@ int* CreateAr(int size, int min, int max){
     return  ar;
 
   }
-#include <algorithm>
+
 
 struct StatArray GetStatArray(const int* ar, int size) {
     StatArray result;
@@ -112,4 +113,15 @@ struct StatArray GetStatArray(const int* ar, int size) {
 
     return result;
 }
+void ShowElement(const int* ar, int size, int col_count, char delimeter){
+    int c{0};
 
+    for (int i=0;i<size;i++){
+
+       std::cout<<ar[i]<<delimeter;
+        c++;
+        if (c%col_count==0){
+            std::cout<<"\n";
+        }
+    }
+}

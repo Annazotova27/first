@@ -52,3 +52,34 @@ else{
     }
   }
 }
+void selection_sort(int* ar, int size, bool isAscending){
+    int i,j,mn;
+    if (isAscending==false){
+        for (i =0; i<size-1;i++){
+            mn=i;
+            for (j=i+1;j<size;j++){
+                if (ar[mn]>ar[j]){
+                    mn=j;
+                }
+            }
+        int tmp=ar[i];
+            ar[i]=ar[mn];
+            ar[mn]=tmp;
+        }
+    }
+
+
+else{
+    for (i =0; i<size-1;i++){
+        mn=i;
+        for (j=i+1;j<size;j++){
+            if (ar[mn]<ar[j]){
+                mn=j;
+            }
+        }
+    int tmp=ar[i];
+        ar[i]=ar[mn];
+        ar[mn]=tmp;
+    }
+}
+}

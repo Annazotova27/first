@@ -34,5 +34,5 @@ struct StatArray {
 double* probabilities;     
 int size_prob;   };
 
-struct StatArray GetStatArray(const int* ar, int size);
+
 void ShowElement(const int* ar, int size, int col_count, char delimeter);

@@ -113,15 +113,4 @@ struct StatArray GetStatArray(const int* ar, int size) {
 
     return result;
 }
-void ShowElement(const int* ar, int size, int col_count, char delimeter){
-    int c{0};
 
-    for (int i=0;i<size;i++){
-
-       std::cout<<ar[i]<<delimeter;
-        c++;
-        if (c%col_count==0){
-            std::cout<<"\n";
-        }
-    }
-}

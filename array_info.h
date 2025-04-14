@@ -28,11 +28,5 @@ double* probabilities;
 int size_prob;
 };
 struct StatArray GetStatArray(const int* ar, int size);
-struct StatArray {
-    int* ar;         
-    int size;            
-double* probabilities;     
-int size_prob;   };
-
 
 void ShowElement(const int* ar, int size, int col_count, char delimeter);

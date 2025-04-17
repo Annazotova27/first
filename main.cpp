@@ -1,18 +1,31 @@
 #include <iostream>
-#include "array_info.h"
+#include "filo.h"
 int main(){
-    int ar[]={9,5,1,4,6,7};
-    int size=6;
-    char t{9};
-    selection_sort(ar,size,false);
-
-    for (int i=0;i<size;i++){
-        std::cout<<ar[i]<<" ";}
-        selection_sort(ar,size,true);
-        for (int i=0;i<size;i++){
-            std::cout<<ar[i]<<" ";
+    FILO* tf=new FILO();
+    std::cout<<tf->ar<<std::endl;
+    std::cout<<tf->size<<std::endl;
+    std::cout<<tf->lastIndex<<std::endl;
+    for (int i=0; i<100;i++){
+        if (tf -> addToEnd(i)==-1){
+            std::cout<<"el"<<i<<std::endl;
         }
-     std::cout<<"\n "<<std::endl;
-    ShowElement(ar, size,  2, t);
+    }
+    for (int i=0;i<64; i++){
+        std::cout<<tf->ar[i]<<std::endl;
+    }
+    for (int i=10;i<20;i++){
+        tf ->getFromEnd(&i);
+    }
+    for (int i=0;i<64; i++){
+        std::cout<<tf->ar[i]<<std::endl;
+
+    }
+    tf -> flush();
+    std::cout<<tf -> ar;
+    for (int i=0;i<64; i++){
+        std::cout<<tf->ar[i]<<std::endl;
+
+    }
+
 
 }

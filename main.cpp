@@ -3,7 +3,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <ctime>
-#include "sort_middle.h"
+#include "sorts_middle.h"
 #include "MeasTime.h"
 
 /**

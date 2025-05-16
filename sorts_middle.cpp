@@ -1,4 +1,4 @@
-#include "sort_middle.h"
+#include "sorts_middle.h"
 #include <iostream>
 #include <cstring> // для memcpy
 

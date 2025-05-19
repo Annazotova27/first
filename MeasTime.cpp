@@ -1,5 +1,5 @@
 #include "MeasTime.h"
-#include "sort_middle.h"
+#include "sorts_middle.h"
 #include <cstdlib>  // для rand()
 
 /**
